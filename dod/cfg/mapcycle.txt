@@ -195,7 +195,6 @@ dod_summer_bridge_way_6
 dod_suntown_v4
 dod_switchback_b1
 dod_tiger2008
-dod_Tolerancia_Zero
 dod_tunisia
 dod_utah_beach_landing_v2
 dod_vallente_rc3
