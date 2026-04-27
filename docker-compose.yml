@@ -1,0 +1,34 @@
+version: '3.3'
+
+services:
+  dods-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: day-of-defeat-source:latest
+    container_name: dods-server
+    network_mode: host
+    volumes:
+      - dods-logs:/home/steam/dods/dod/logs
+    environment:
+      - STEAMCMD_UPDATE=1
+    command: [
+      "./srcds_run",
+      "-game", "dod",
+      "-console",
+      "-usercon",
+      "-ip", "0.0.0.0",
+      "-port", "27015",
+      "-tickrate", "66",
+      "+sv_lan", "1",
+      "+map", "dod_anzio",
+      "+maxplayers", "32",
+      "+exec", "server.cfg"
+    ]
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+volumes:
+  dods-logs:
+    driver: local
